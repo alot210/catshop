@@ -8,3 +8,5 @@
  */
 
 rootProject.name = 'catshop'
+include 'helloServlet'
+include 'helloDataSource'
