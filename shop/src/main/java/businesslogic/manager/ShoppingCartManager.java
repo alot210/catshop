@@ -1,4 +1,4 @@
-package businesslogic;
+package businesslogic.manager;
 
 import transferModels.Article;
 import transferModels.ShoppingCart;
