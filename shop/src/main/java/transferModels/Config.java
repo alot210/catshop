@@ -1,5 +1,7 @@
 package transferModels;
 
+import java.io.Serializable;
+
 //TODO
-public class Config {
+public class Config implements Serializable {
 }

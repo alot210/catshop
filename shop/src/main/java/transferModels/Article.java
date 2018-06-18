@@ -1,6 +1,8 @@
 package transferModels;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
 
     private int id;
     private String name;

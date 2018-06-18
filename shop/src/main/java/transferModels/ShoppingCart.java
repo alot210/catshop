@@ -1,8 +1,9 @@
 package transferModels;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 
     //TODO
     private List<Article> articleList;
