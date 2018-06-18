@@ -83,6 +83,7 @@ subprojects {
 farm {
     webapp ':helloServlet'
     webapp ':helloDataSource'
+    webapp ':catshop'
 }
 
 
