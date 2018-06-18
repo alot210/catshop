@@ -7,16 +7,8 @@ import java.util.List;
 
 public class ShoppingCartManager {
 
-    //TODO
     private ShoppingCart shoppingCart;
 
-    public void checkout(ShoppingCart cart){
-
-    }
-
-    public int calculate(ShoppingCart shoppingCart){
-        return 0;
-    }
 
     public ShoppingCart createShoppingCart(){
         return this.shoppingCart = new ShoppingCart();
@@ -26,14 +18,31 @@ public class ShoppingCartManager {
         return this.shoppingCart = new ShoppingCart(articleList);
     }
 
+    //TODO
+    public void checkout(ShoppingCart cart){
+
+    }
+
+    //TODO
+    public int calculate(ShoppingCart shoppingCart){
+
+        return 0;
+    }
+
+
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
 
-    void addArticle(ShoppingCart shoppingCart, int articleID){
+    //TODO
+    public void addArticle(ShoppingCart shoppingCart, int articleID){
     }
 
+    //TODO
+    public void deleteArticle(ShoppingCart shoppingCart, int articleID){
+    }
 
-    void deleteArticle(ShoppingCart shoppingCart, int articleID){
+    public List<Article> getArticles(){
+        return shoppingCart.getArticleList();
     }
 }
