@@ -3,6 +3,8 @@ dependencies {
     compile 'javax.servlet:javax.servlet-api:3.1.0'
 //    compile 'org.apache.myfaces.trinidad:trinidad-api:2.2.1-SNAPSHOT'
     compile group: 'org.apache.myfaces.core', name: 'myfaces-impl', version: '2.2.+'
+
+    compile 'net.bootsfaces:bootsfaces:1.2.0'
 }
 
 
