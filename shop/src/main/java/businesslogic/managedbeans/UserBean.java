@@ -6,6 +6,7 @@ import transferModels.User;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 
 @ManagedBean
@@ -59,7 +60,10 @@ public class UserBean implements Serializable {
         return user;
     }
 
-    public void createUser(String userName, String password, int id){
-
+    public void createUser(HttpServletRequest request){
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        int uid = username.hashCode();
+        userManager.createUser(username, password, uid);
     }
 }
