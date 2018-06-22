@@ -2,6 +2,7 @@ package businesslogic.manager;
 
 import data.H2FactoryDao;
 import data.H2UserDao;
+import data.H2UserDaoMockUp;
 import transferModels.User;
 
 import java.sql.SQLException;
@@ -13,15 +14,13 @@ public class UserManager {
 
     }
 
-    public void createUser(String userName, String password, int id){
+    public void createUser(User user){
 
-        User u = new User(userName,password,id);
-        /*H2UserDao UserDao = H2FactoryDao.getDaoUser();
-        try {
-            //UserDao.addUser(u);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
+       /* User u = new User(user.getUserName(),user.getPassword(),user.getId());
+        H2UserDaoMockUp UserDao = H2FactoryDao.getMockUp();
+
+            UserDao.createUser(u);*/
+
     }
 
 
@@ -33,7 +32,8 @@ public class UserManager {
 
 
         H2UserDao UserDao = H2FactoryDao.getDaoUser();
-        //UserDao.getUser(id).getUserName();
-        return u.getUserName();
+        H2UserDaoMockUp UserDao2 = H2FactoryDao.getMockUp();
+        User benutzer = UserDao2.getUser(u.getId()); //u.getUserName();
+        return benutzer.getUserName();
     }
 }

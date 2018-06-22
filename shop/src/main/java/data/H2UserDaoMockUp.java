@@ -18,6 +18,10 @@ public class H2UserDaoMockUp implements UserDao {
         return user;
     }
 
+    public User createUser(User u){
+        return u;
+    }
+
     @Override
     public void deleteUser(User article) {
 

@@ -35,7 +35,7 @@ public class UserBean implements Serializable {
 
 
         user.setId(user.getUserName().hashCode());
-        userManager.createUser(user.getUserName(), user.getPassword(), user.getId());
+        userManager.createUser(user);
         return renderUserWelcome();
     }
 
@@ -43,7 +43,7 @@ public class UserBean implements Serializable {
 
 
         user.setUserName(userManager.getUserName(user));
-        return "/welcome.xhtml";
+        return "welcome.xhtml";
     }
 
 }
