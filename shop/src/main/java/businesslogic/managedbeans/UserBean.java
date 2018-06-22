@@ -31,9 +31,13 @@ public class UserBean implements Serializable {
     }
 
     public void createUser(){
-        String username =user.getUserName();
-        String password = user.getPassword();
-        int uid = username.hashCode();
-        userManager.createUser(username, password, uid);
+        user.setId(user.getUserName().hashCode());
+        userManager.createUser(user.getUserName(), user.getPassword(), user.getId());
     }
+/*
+    public String renderUserWelcome (){
+
+        userManager.getUserName(user.)
+    }
+    */
 }
