@@ -13,7 +13,7 @@ public class H2UserDao {
 
         String sql = "INSERT INTO USER(ID,NAME,PRICE,AMOUNT) VALUES (?,?,?)";
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setString(1, user.getId());
+        statement.setInt(1, user.getId());
         statement.setString(2, user.getUserName());
         statement.setString(3, user.getPassword());
         int numberRows = statement.executeUpdate();
@@ -26,7 +26,7 @@ public class H2UserDao {
         ResultSet resultSet = statement.executeQuery(sql);
         User user = new User();
         while(resultSet.next()) {
-            user.setId(resultSet.getString("ID"));
+            user.setId(resultSet.getInt("ID"));
             user.setUserName(resultSet.getString("NAME"));
 
         }
@@ -34,7 +34,7 @@ public class H2UserDao {
     }
 
     public void deleteUser(User user){
-        String id = user.getId();
+        int id = user.getId();
         String sql = "DELETE FROM ARTICLE WHERE ID="+id;
     }
 }

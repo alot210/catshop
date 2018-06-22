@@ -8,6 +8,6 @@ import java.util.ArrayList;
 public interface UserDao {
 
     void addUser(Article article) throws SQLException;
-    Article getUser(String id) throws SQLException;
+    Article getUser(int id) throws SQLException;
     void deleteUser(Article article);
 }
