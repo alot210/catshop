@@ -18,18 +18,18 @@
 </h:head>
 
 <h:body>
-    <form action="welcome.xhtml" method="post">
-        <fieldset>
-            <legend>Login</legend>
+    <h:form id="login_form" method="post">
+        <h:fieldset>
+            <h:legend>Login</h:legend>
             Username <br></
-            <label for = "name"></label><b></b>
-            <input type="text" name="username"/><br></br>
+            <h:label for = "name"></h:label><b></b>
+            <h:input type="text" name="username"/><br></br>
              Passwort <br></br>
-            <label for ="pw"></label>
-            <input type="text" name="password"/>
-            <button type="submit" name="login_button">Einloggen</button>
-        </fieldset>
-    </form>
+            <h:label for ="pw"></h:label>
+            <h:input type="text" name="password"/>
+            <h:commandButton id="login_id" value="einloggen" action="#{userBean.createUser}">Einloggen</h:commandButton>
+        </h:fieldset>
+    </h:form>
     
 </h:body>
 
