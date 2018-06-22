@@ -8,8 +8,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.sql.SQLException;
 
-@ManagedBean
+@ManagedBean(name="userBean")
 @SessionScoped
 public class UserBean implements Serializable {
 
@@ -22,23 +23,27 @@ public class UserBean implements Serializable {
         user = new User();
     }
 
-    //getter und setter müpssen immer public sein, da sich JSF die selbst suchen muss!
-    private void setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    private User getUser(){
-        return user;
+    public User getUser(){
+        return this.user;
     }
 
-    public void createUser(){
+    public String createUser() throws SQLException {
+
+
         user.setId(user.getUserName().hashCode());
         userManager.createUser(user.getUserName(), user.getPassword(), user.getId());
+        return renderUserWelcome();
     }
-/*
-    public String renderUserWelcome (){
 
-        userManager.getUserName(user.)
+    public String renderUserWelcome () throws SQLException {
+
+
+        user.setUserName(userManager.getUserName(user));
+        return "/welcome.xhtml";
     }
-    */
+
 }

@@ -16,12 +16,12 @@ public class UserManager {
     public void createUser(String userName, String password, int id){
 
         User u = new User(userName,password,id);
-        H2UserDao UserDao = H2FactoryDao.getDaoUser();
+        /*H2UserDao UserDao = H2FactoryDao.getDaoUser();
         try {
-            UserDao.addUser(u);
+            //UserDao.addUser(u);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
@@ -30,6 +30,7 @@ public class UserManager {
     }
 
     public String getUserName(User u) throws SQLException {
+
 
         H2UserDao UserDao = H2FactoryDao.getDaoUser();
         //UserDao.getUser(id).getUserName();
