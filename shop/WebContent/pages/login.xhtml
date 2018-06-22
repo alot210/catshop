@@ -11,7 +11,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"> <!--wichtig um tags um benas functionality zu erweitern, sonst normale tags ausreichend-->
 
 <h:head>
     <title>Login</title>
@@ -19,16 +19,15 @@
 
 <h:body>
     <h:form id="login_form" method="post">
-        <h:fieldset>
-            <h:legend>Login</h:legend>
-            Username <br></br>
-            <h:label for = "name"></h:label><b></b>
-            <h:input type="text" name="username"/><br></br>
-             Passwort <br></br>
-            <h:label for ="pw"></h:label>
-            <h:input type="text" name="password"/>
-            <h:commandButton id="login_id" value="einloggen" action="#{userBean.createUser}">Einloggen</h:commandButton>
-        </h:fieldset>
+        <fieldset>
+            <legend>Login</legend>
+            <br></br>
+            <label for = "name">Username</label><br></br>
+            <input type="text" name="username"/><br></br>
+            <label for ="pw">Password</label><br></br>
+            <input type="text" name="password"/>
+            <h:commandButton id="login_button" value="einloggen" action="#{userBean.createUser}"/>
+        </fieldset>
     </h:form>
     
 </h:body>
