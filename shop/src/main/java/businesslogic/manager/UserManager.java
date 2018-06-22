@@ -31,6 +31,7 @@ public class UserManager {
 
     public String getUserName(User u) throws SQLException {
 
+
         H2UserDao UserDao = H2FactoryDao.getDaoUser();
         //UserDao.getUser(id).getUserName();
         return u.getUserName();
