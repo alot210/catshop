@@ -5,6 +5,7 @@ dependencies {
     compile group: 'org.apache.myfaces.core', name: 'myfaces-impl', version: '2.2.+'
 
     compile 'net.bootsfaces:bootsfaces:1.2.0'
+
 }
 
 
