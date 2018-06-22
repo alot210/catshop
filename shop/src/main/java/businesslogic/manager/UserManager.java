@@ -28,5 +28,4 @@ public class UserManager {
     public void createUserTable(){
 
     }
-
 }
