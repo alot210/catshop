@@ -19,7 +19,7 @@ public class H2UserDao {
         int numberRows = statement.executeUpdate();
     }
 
-    public User getUser(String id) throws SQLException {
+    public User getUser(int id) throws SQLException {
         Connection con = Config.getSQLConnection();
         String sql = "SELECT * FROM USER WHERE ID="+id;
         Statement statement = con.createStatement();

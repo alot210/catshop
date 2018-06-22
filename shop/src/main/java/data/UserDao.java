@@ -1,13 +1,13 @@
 package data;
 
-import transferModels.Article;
+import transferModels.User;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UserDao {
 
-    void addUser(Article article) throws SQLException;
-    Article getUser(int id) throws SQLException;
-    void deleteUser(Article article);
+    void addUser(User article) throws SQLException;
+    User getUser(int id) throws SQLException;
+    void deleteUser(User article);
 }
