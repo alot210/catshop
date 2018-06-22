@@ -22,6 +22,7 @@ public class UserBean implements Serializable {
         user = new User();
     }
 
+    //getter und setter müpssen immer public sein, da sich JSF die selbst suchen muss!
     private void setUser(User user) {
         this.user = user;
     }
