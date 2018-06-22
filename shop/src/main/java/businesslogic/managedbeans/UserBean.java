@@ -16,41 +16,11 @@ public class UserBean implements Serializable {
     private User user;
     private UserManager userManager;
 
-
-
-    public String userName;
-    public String password;
-    public int id;
-
     @PostConstruct
     void init(){
         userManager = new UserManager();
+        user = new User();
     }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
 
     private void setUser(User user) {
         this.user = user;
@@ -60,9 +30,9 @@ public class UserBean implements Serializable {
         return user;
     }
 
-    public void createUser(HttpServletRequest request){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+    public void createUser(){
+        String username =user.getUserName();
+        String password = user.getPassword();
         int uid = username.hashCode();
         userManager.createUser(username, password, uid);
     }
