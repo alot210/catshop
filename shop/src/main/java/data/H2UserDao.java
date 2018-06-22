@@ -13,20 +13,20 @@ public class H2UserDao {
 
         String sql = "INSERT INTO USER(ID,NAME,PRICE,AMOUNT) VALUES (?,?,?)";
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setInt(1, user.getId());
+        statement.setString(1, user.getId());
         statement.setString(2, user.getUserName());
         statement.setString(3, user.getPassword());
         int numberRows = statement.executeUpdate();
     }
 
-    public User getUser(int id) throws SQLException {
+    public User getUser(String id) throws SQLException {
         Connection con = Config.getSQLConnection();
         String sql = "SELECT * FROM USER WHERE ID="+id;
         Statement statement = con.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         User user = new User();
         while(resultSet.next()) {
-            user.setId(resultSet.getInt("ID"));
+            user.setId(resultSet.getString("ID"));
             user.setUserName(resultSet.getString("NAME"));
 
         }
@@ -34,7 +34,7 @@ public class H2UserDao {
     }
 
     public void deleteUser(User user){
-        int id = user.getId();
+        String id = user.getId();
         String sql = "DELETE FROM ARTICLE WHERE ID="+id;
     }
 }
