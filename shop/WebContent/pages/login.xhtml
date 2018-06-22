@@ -23,9 +23,9 @@
             <legend>Login</legend>
             <br></br>
             <label for = "name">Username</label><br></br>
-            <input type="text" name="username"/><br></br>
+            <h:inputText value="#{user.userName}" name="username"/><br></br>
             <label for ="pw">Password</label><br></br>
-            <input type="text" name="password"/>
+            <h:inputText value="#{user.password}" name="password"/>
             <h:commandButton id="login_button" value="einloggen" action="#{userBean.createUser}"/>
         </fieldset>
     </h:form>
