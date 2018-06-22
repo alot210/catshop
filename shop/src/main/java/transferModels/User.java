@@ -8,13 +8,13 @@ public class User implements Serializable {
 
     private String userName;
     private String password;
-    private int id;
+    private String id;
 
     public User(){
 
     }
 
-    public User(String userName, String password, int id){
+    public User(String userName, String password, String id){
         this.userName= userName;
         this.password = password;
         this.id = id;
@@ -36,11 +36,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
