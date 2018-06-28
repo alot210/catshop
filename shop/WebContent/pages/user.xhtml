@@ -16,6 +16,14 @@
 <h:head>
     <title>User</title>
 </h:head>
+    <p>Hallo </p>
+        <h:outputText value="#{userBean.user.userName}"></h:outputText>
+    <p>Mein Warenkorb:</p>
+        <h:form>
+            <h:commandButton id="warenkorb-button" value="Shoppingcart" action="#{shoppingCartBean.viewCart}"/>
+            <br></br>
+            <h:commandButton id="logout-button" value="Logout" action="#{userBean.logout}"/>
+        </h:form>
 
 <h:body>
     

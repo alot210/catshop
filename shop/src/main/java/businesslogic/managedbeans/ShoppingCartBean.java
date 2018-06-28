@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 
-@ManagedBean
+@ManagedBean(name="shoppingCartBean")
 @SessionScoped
 public class ShoppingCartBean implements Serializable {
 
@@ -41,10 +41,12 @@ public class ShoppingCartBean implements Serializable {
     //button action= viewCart -> shoppingcart.xhtml
     public String viewCart(){
 
+        System.out.print("test");
+       /*->nullpointerexception wenn shopcartmanager noch nicht existiert
        if(shoppingCartManager.getArticles() == null){
            //"ist leer"
-       }
-       return "pages/shoppingcart.xhtml";
+       }*/
+       return "shoppingcart.xhtml";
     }
 
     //button action=add -> shoppingcart.xhtml

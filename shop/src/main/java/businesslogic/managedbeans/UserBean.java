@@ -46,4 +46,10 @@ public class UserBean implements Serializable {
         return "welcome.xhtml";
     }
 
+    public String logout(){
+
+        //todo
+        return "login.xhtml";
+    }
+
 }
