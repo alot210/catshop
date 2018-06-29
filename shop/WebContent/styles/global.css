@@ -2,7 +2,7 @@ body {
     color: #708090;
 }
 
-input[type=text], select {
+/*input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -25,4 +25,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #FF69B4;
+}*/
+
+formular {
+    width: 200px;
 }

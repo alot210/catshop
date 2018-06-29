@@ -15,24 +15,27 @@
 
 <h:head>
     <title>Login</title>
+    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
 </h:head>
 
 <h:body>
-
-
-    <h:form id="login_form" method="post">
-        <fieldset>
+    <div class="m-5">
+        <h:form id="login_form" method="post" class="formular" style="width: 400px">
             <legend>Login</legend>
+            <div class="form-group-sm">
+                <label for="username">Username</label>
+                <h:inputText class="form-control" value="#{userBean.user.userName}" name="username" id="username" required="true"/>
+            </div>
+            <div class="form-group-sm">
+                <label for="password">Password</label>
+                <h:inputText class="form-control" value="#{userBean.user.password}" name="password" id="password" required="true"/>
+            </div>
             <br></br>
-            <label for = "username">Username</label><br></br>
-            <h:inputText value="#{userBean.user.userName}" name="username" id="username" required="true"/><br></br>
-            <label for ="password">Password</label><br></br>
-            <h:inputText value="#{userBean.user.password}" name="password" id="password" required="true"/>
-            <h:commandButton id="login_button" value="einloggen" action="#{userBean.createUser}"/>
-            <h:commandButton id="reset" value="zurücksetzen" action="#{userBean.resetForm}" immediate="true"/>
-        </fieldset>
-    </h:form>
-    
+            <h:commandButton class="btn btn-default btn-sm mr-1" id="login" value="Login" action="#{userBean.createUser}"/>
+            <h:commandButton class="btn btn-default btn-sm mr-1" id="reset" value="Reset" action="#{userBean.resetForm}" immediate="true"/>
+        </h:form>
+    </div>
+
 </h:body>
 
 </html>
