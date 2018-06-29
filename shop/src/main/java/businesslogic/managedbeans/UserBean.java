@@ -1,12 +1,17 @@
 package businesslogic.managedbeans;
 
 import businesslogic.manager.UserManager;
+import sun.security.validator.ValidatorException;
 import transferModels.User;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.http.HttpServletRequest;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.Validator;
+
 import java.io.Serializable;
 import java.sql.SQLException;
 
@@ -46,11 +51,13 @@ public class UserBean implements Serializable {
 
         return "welcome.xhtml";
     }*/
+  
 
     public String logout(){
 
         //todo
         return "ok";
     }
+
 
 }
