@@ -15,18 +15,19 @@
 
 <h:head>
     <title>User</title>
+    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
 </h:head>
-    <p>Hallo </p>
-        <h:outputText value="#{userBean.user.userName}"></h:outputText>
+    <span>Hallo</span>
+        <h:outputText class="ml-1" value="#{userBean.user.userName}"></h:outputText>
     <p>Mein Warenkorb:</p>
         <h:form>
-            <h:commandButton id="warenkorb-button" value="Shoppingcart" action="#{shoppingCartBean.viewCart}"/>
+            <h:commandButton class="btn btn-default btn-sm m-1" id="warenkorb-button" value="Shoppingcart" action="#{shoppingCartBean.viewCart}"/>
             <br></br>
-            <h:commandButton id="logout-button" value="Logout" action="#{userBean.logout}"/>
+            <h:commandButton class="btn btn-default btn-sm m-1" id="logout-button" value="Logout" action="#{userBean.logout}"/>
         </h:form>
 
 <h:body>
-    
+
 </h:body>
 
 </html>

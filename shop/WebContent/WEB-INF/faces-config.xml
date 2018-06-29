@@ -42,4 +42,8 @@
         </navigation-case>
     </navigation-rule>
 
+    <validator>
+        <validator-id>loginValidator</validator-id>
+        <validator-class>presentation.LoginValidator</validator-class>
+    </validator>
 </faces-config>
