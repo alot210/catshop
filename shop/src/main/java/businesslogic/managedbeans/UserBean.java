@@ -36,15 +36,16 @@ public class UserBean implements Serializable {
 
         user.setId(user.getUserName().hashCode());
         userManager.createUser(user);
-        return renderUserWelcome();
-    }
-
-    public String renderUserWelcome () throws SQLException {
-
-
         user.setUserName(userManager.getUserName(user));
-        return "welcome.xhtml";
+
+        return "ok";
     }
+
+  /*  public String renderUserWelcome () throws SQLException {
+
+
+        return "welcome.xhtml";
+    }*/
 
     public String logout(){
 
