@@ -15,5 +15,31 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <display-name>user.xhtml</display-name>
+        <from-view-id>/pages/user.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.logout}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <display-name>user.xhtml</display-name>
+        <from-view-id>/pages/user.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.logout}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{shoppingCartBean.viewCart}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/shoppingcart.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>

@@ -70,7 +70,7 @@ public class ShoppingCartBean implements Serializable {
     //button action=checkout -> checkout.xhtml
     public String checkout(){
         shoppingCartManager.checkout(shoppingCart);
-        return "pages/shoppingcart.xhtml";
+        return "ok";
     }
 
 }

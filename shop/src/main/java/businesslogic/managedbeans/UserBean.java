@@ -50,7 +50,7 @@ public class UserBean implements Serializable {
     public String logout(){
 
         //todo
-        return "login.xhtml";
+        return "ok";
     }
 
 }
