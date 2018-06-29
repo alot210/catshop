@@ -25,10 +25,11 @@
             <legend>Login</legend>
             <br></br>
             <label for = "username">Username</label><br></br>
-            <h:inputText value="#{userBean.user.userName}" name="username" id="username"/><br></br>
+            <h:inputText value="#{userBean.user.userName}" name="username" id="username" required="true"/><br></br>
             <label for ="password">Password</label><br></br>
-            <h:inputText value="#{userBean.user.password}" name="password" id="password"/>
+            <h:inputText value="#{userBean.user.password}" name="password" id="password" required="true"/>
             <h:commandButton id="login_button" value="einloggen" action="#{userBean.createUser}"/>
+            <h:commandButton id="reset" value="zurück" action="#{userBean.resetForm}" immediate="true"/>
         </fieldset>
     </h:form>
     

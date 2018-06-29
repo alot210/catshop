@@ -53,4 +53,9 @@ public class UserBean implements Serializable {
         return "ok";
     }
 
+    public String resetForm(){
+
+        return "welcome.xhtml";
+    }
+
 }
