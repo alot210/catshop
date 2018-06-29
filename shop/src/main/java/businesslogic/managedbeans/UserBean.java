@@ -49,13 +49,15 @@ public class UserBean implements Serializable {
 
     public String logout(){
 
+        user.setUserName("");
+        user.setPassword("");
         //todo
         return "ok";
     }
 
     public String resetForm(){
 
-        return "welcome.xhtml";
+        return "login.xhtml";
     }
 
 }
