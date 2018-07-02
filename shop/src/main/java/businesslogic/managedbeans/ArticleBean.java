@@ -14,6 +14,7 @@ public class ArticleBean implements Serializable{
     void init(){
 
         articleManager = new ArticleManager();
+//        articleManager.createArticleTable();
     }
 
     public Article getArticle() {
