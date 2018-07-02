@@ -21,6 +21,7 @@ public class UserBean implements Serializable {
 
     private User user;
     private UserManager userManager;
+    private int counter = 0;
 
     @PostConstruct
     void init() {
@@ -38,6 +39,10 @@ public class UserBean implements Serializable {
 
     public String createUser() throws SQLException {
 
+        if(counter < 1){
+            userManager.createUserTable();
+            counter++;
+        }
 
         user.setId(user.getUserName().hashCode());
         userManager.createUser(user);

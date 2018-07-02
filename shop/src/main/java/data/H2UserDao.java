@@ -11,7 +11,7 @@ public class H2UserDao {
 
         Connection con = Config.getSQLConnection();
 
-        String sql = "INSERT INTO USER(ID,NAME,PRICE,AMOUNT) VALUES (?,?,?)";
+        String sql = "INSERT INTO USER(ID,NAME,PASSWORD) VALUES (?,?,?)";
         PreparedStatement statement = con.prepareStatement(sql);
         statement.setInt(1, user.getId());
         statement.setString(2, user.getUserName());
@@ -36,5 +36,19 @@ public class H2UserDao {
     public void deleteUser(User user){
         int id = user.getId();
         String sql = "DELETE FROM ARTICLE WHERE ID="+id;
+    }
+
+    public void createUserTable() {
+        try {
+            Connection con = Config.getSQLConnection();
+            PreparedStatement statement1 = con.prepareStatement("DROP TABLE IF EXISTS USER");
+            PreparedStatement statement2 = con.prepareStatement("CREATE TABLE USER(ID INT PRIMARY KEY, NAME VARCHAR(255), PASSWORD VARCHAR(255))");
+
+            statement1.execute();
+            statement2.execute();
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 }

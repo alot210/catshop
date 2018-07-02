@@ -63,7 +63,7 @@ public class H2ArticleDao {
         }
     }
 
-    public ArrayList<Article> getArticle() {
+    public ArrayList<Article> getArticleList() {
 
         String sql = "SELECT * FROM ARTICLE";
         ArrayList<Article> articleList = new ArrayList<>();
