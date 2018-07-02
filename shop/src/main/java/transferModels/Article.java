@@ -20,9 +20,6 @@ public class Article implements Serializable {
         this.amount = amount;
     }
 
-    //TODO
-
-
     public int getId() {
         return id;
     }

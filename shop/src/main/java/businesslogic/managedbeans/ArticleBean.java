@@ -2,19 +2,31 @@ package businesslogic.managedbeans;
 import businesslogic.manager.ArticleManager;
 import transferModels.Article;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 
-@ManagedBean
+@ManagedBean(name = "articleBean")
+@SessionScoped
 public class ArticleBean implements Serializable{
 
     private Article article;
     private ArticleManager articleManager;
+    public List<Article> articleList;
 
+    @PostConstruct
     void init(){
 
         articleManager = new ArticleManager();
-//        articleManager.createArticleTable();
+        articleManager.createArticleTable();
+        Article a1 = new Article(1, "Hoodie", 25, 200);
+        Article a2 = new Article(2, "Shirt", 15, 100);
+        Article a3 = new Article(3, "Smartphone Case", 10, 100);
+        articleManager.createArticle(a1);
+        articleManager.createArticle(a2);
+        articleManager.createArticle(a3);
     }
 
     public Article getArticle() {
@@ -33,10 +45,11 @@ public class ArticleBean implements Serializable{
         this.articleManager = articleManager;
     }
 
-    public String getArticles(){
+    public List<Article> getArticles(){
 
-        articleManager.getArticles();
-        return "products.xhtml";
+        articleList = articleManager.getArticles();
+        return articleList;
+//        return "products.xhtml";
     }
 
 
