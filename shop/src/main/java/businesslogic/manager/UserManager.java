@@ -10,30 +10,34 @@ import java.sql.SQLException;
 //TODO
 public class UserManager {
 
-    public void createUser(){
-
-    }
-
     public void createUser(User user){
 
-       /* User u = new User(user.getUserName(),user.getPassword(),user.getId());
-        H2UserDaoMockUp UserDao = H2FactoryDao.getMockUp();
-
-            UserDao.createUser(u);*/
+        User u = new User(user.getUserName(),user.getPassword(),user.getId());
+//        H2UserDaoMockUp UserDao = H2FactoryDao.getMockUp();
+        H2UserDao userDao = H2FactoryDao.getDaoUser();
+        try {
+            userDao.addUser(u);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
 
     public void createUserTable(){
-
+        H2UserDao userDao = H2FactoryDao.getDaoUser();
+        userDao.createUserTable();
     }
 
     public String getUserName(User u) throws SQLException {
 
 
         H2UserDao UserDao = H2FactoryDao.getDaoUser();
-        H2UserDaoMockUp UserDao2 = H2FactoryDao.getMockUp();
-        User benutzer = UserDao2.getUser(u.getId()); //u.getUserName();
-        return benutzer.getUserName();
+
+        User user = UserDao.getUser(u.getId());
+
+//        H2UserDaoMockUp UserDao2 = H2FactoryDao.getMockUp();
+//        User benutzer = UserDao2.getUser(u.getId()); //u.getUserName();
+        return user.getUserName();
     }
 }

@@ -15,7 +15,7 @@ import javax.faces.validator.Validator;
 import java.io.Serializable;
 import java.sql.SQLException;
 
-@ManagedBean(name="userBean")
+@ManagedBean(name = "userBean")
 @SessionScoped
 public class UserBean implements Serializable {
 
@@ -23,8 +23,9 @@ public class UserBean implements Serializable {
     private UserManager userManager;
 
     @PostConstruct
-    void init(){
+    void init() {
         userManager = new UserManager();
+        //userManager.createUserTable();
         user = new User();
     }
 
@@ -32,12 +33,11 @@ public class UserBean implements Serializable {
         this.user = user;
     }
 
-    public User getUser(){
+    public User getUser() {
         return this.user;
     }
 
     public String createUser() throws SQLException {
-
 
         user.setId(user.getUserName().hashCode());
         userManager.createUser(user);
@@ -51,9 +51,9 @@ public class UserBean implements Serializable {
 
         return "welcome.xhtml";
     }*/
-  
 
-    public String logout(){
+
+    public String logout() {
 
         user.setUserName("");
         user.setPassword("");
@@ -62,8 +62,8 @@ public class UserBean implements Serializable {
     }
 
 
-    public String resetForm(){
-
+    public String resetForm() {
+        this.user = new User();
         return "login.xhtml";
     }
 

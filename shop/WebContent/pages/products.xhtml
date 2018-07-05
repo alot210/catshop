@@ -11,7 +11,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"> <!--wichtig um tags um beans functionality zu erweitern, sonst normale tags ausreichend-->
+
 
 <h:head>
     <title>All Products</title>
@@ -19,6 +20,103 @@
 </h:head>
 
 <h:body>
+
+    <h:dataTable value="#{articleBean.articleList}" var="artikel">
+        <div class="cointainer mt-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h:column>
+                        <div class="header-panel">
+                            <!-- das hier macht es blau -->
+                            <div class="panel alert-primary">
+                                <!--<f:facet name="header">Name</f:facet>-->
+                                #{artikel.name}
+                            </div>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <!--<f:facet name="header">Price</f:facet>-->
+                        <p> #{artikel.price} €</p>
+                    </h:column>
+                    <h:column>
+                        <!--<f:facet name="header">Amount</f:facet>-->
+                        <p>#{artikel.amount} items</p>
+                    </h:column>
+                    <h:column>
+                        <div class="panel-body">
+                            <h:graphicImage value="#{artikel.image}" style="width: 100%" alt="Image"></h:graphicImage>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <div class="header-panel">
+                        <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Add to Shoppingcart" id="login"></h:commandButton>
+                        </div>
+                    </h:column>
+
+                </div>
+            </div>
+        </div>
+    </h:dataTable>
+
+
+
+    <!--<div class="container mt-2">-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading">Hoodie</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-danger">-->
+                    <!--<div class="panel-heading">Crop Top</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-success">-->
+                    <!--<div class="panel-heading">Smartphone Case</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div><br></br>-->
+
+    <!--<div class="container mb-2">-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading">T-Shirt</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading">Sheets</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading">Pyjama</div>-->
+                    <!--<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></img></div>-->
+                    <!--<div class="panel-footer"><h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Add to Shoppingcart"></h:commandButton></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div><br></br><br></br>-->
+
+    <footer class="container-fluid text-center">
+        <p>Online Store Copyright</p>
+    </footer>
     
 </h:body>
 

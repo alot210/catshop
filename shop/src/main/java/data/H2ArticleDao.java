@@ -10,6 +10,7 @@ public class H2ArticleDao {
 
     public void addArticle(Article article) throws SQLException {
 
+        //System.out.println("articleDao addarticle wird aufgerufen");
         Connection con = Config.getSQLConnection();
 
         String sql = "INSERT INTO ARTICLE(ID,NAME,PRICE,AMOUNT) VALUES (?,?,?,?)";
@@ -50,7 +51,11 @@ public class H2ArticleDao {
 
 
     public void createArticleTable(){
+
+
         try {
+
+            System.out.print("artikel tabelle wird erstellt");
             Connection con = Config.getSQLConnection();
             PreparedStatement statement1 = con.prepareStatement("DROP TABLE IF EXISTS ARTICLE");
             PreparedStatement statement2 = con.prepareStatement("CREATE TABLE ARTICLE(ID INT PRIMARY KEY, NAME VARCHAR(255), PRICE INT, AMOUNT INT)");
@@ -63,7 +68,7 @@ public class H2ArticleDao {
         }
     }
 
-    public ArrayList<Article> getArticle() {
+    public ArrayList<Article> getArticleList() {
 
         String sql = "SELECT * FROM ARTICLE";
         ArrayList<Article> articleList = new ArrayList<>();

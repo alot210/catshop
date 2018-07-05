@@ -23,7 +23,7 @@ public class LoginValidator implements Validator {
 
         String regEx = ".*[0-9].*";
         if(!pw.matches(regEx)){
-            throw new ValidatorException(new FacesMessage("Passwort entspricht nicht den vorgaben.Muss mindestens eine Ziffer am Ende enhalten."));
+            throw new ValidatorException(new FacesMessage("Passwort entspricht nicht den vorgaben.Muss mindestens eine Ziffer enhalten."));
         }
 
     }
