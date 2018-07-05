@@ -21,11 +21,44 @@
 
 <h:body>
 
-    <h:commandButton  value="Reset" action="#{userBean.createUser}"></h:commandButton>
+    <h:dataTable value="#{articleBean.articleList}" var="artikel">
+        <div class="cointainer mt-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h:column>
+                        <div class="header-panel">
+                            <!-- das hier macht es blau -->
+                            <div class="panel alert-primary">
+                                <!--<f:facet name="header">Name</f:facet>-->
+                                #{artikel.name}
+                            </div>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <!--<f:facet name="header">Price</f:facet>-->
+                        <p> #{artikel.price} €</p>
+                    </h:column>
+                    <h:column>
+                        <!--<f:facet name="header">Amount</f:facet>-->
+                        <p>#{artikel.amount} items</p>
+                    </h:column>
+                    <h:column>
+                        <div class="panel-body">
+                            <h:graphicImage value="#{artikel.image}" style="width: 100%" alt="Image"></h:graphicImage>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <div class="header-panel">
+                        <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Add to Shoppingcart" id="login"></h:commandButton>
+                        </div>
+                    </h:column>
 
-    <!--<h:dataTable value="#{articleBean.getArticles}" var="value">-->
-        <!--#{value} <br />-->
-    <!--</h:dataTable>-->
+                </div>
+            </div>
+        </div>
+    </h:dataTable>
+
+
 
     <!--<div class="container mt-2">-->
         <!--<div class="row">-->
@@ -81,9 +114,9 @@
         <!--</div>-->
     <!--</div><br></br><br></br>-->
 
-    <!--<footer class="container-fluid text-center">-->
-        <!--<p>Online Store Copyright</p>-->
-    <!--</footer>-->
+    <footer class="container-fluid text-center">
+        <p>Online Store Copyright</p>
+    </footer>
     
 </h:body>
 

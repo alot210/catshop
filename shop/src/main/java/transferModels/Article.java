@@ -8,16 +8,19 @@ public class Article implements Serializable {
     private String name;
     private int price;
     private int amount;
+    private String image;
 
     public Article(){
 
     }
 
-    public Article(int id, String name, int price, int amount){
+    public Article(int id, String name, int price, int amount, String image){
         this.id = id;
         this.name = name;
         this.price = price;
         this.amount = amount;
+        this.image = image;
+
     }
 
     public int getId() {
@@ -51,4 +54,8 @@ public class Article implements Serializable {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image  = image; }
 }
