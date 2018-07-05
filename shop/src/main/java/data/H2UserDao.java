@@ -5,7 +5,7 @@ import transferModels.User;
 
 import java.sql.*;
 
-public class H2UserDao {
+public class H2UserDao implements UserDao{
 
     public void addUser(User user) throws SQLException {
 
