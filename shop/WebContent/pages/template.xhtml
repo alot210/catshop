@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: alien_slayer
+  Date: 6/18/18
+  Time: 1:02 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> <!--templating library -->
+
+<h:head>
+    <title>Catshop</title>
+    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+
+    <div id="header">
+        <ui:insert name="header">
+            <h1>Welcome to the CatShop</h1>
+        </ui:insert>
+    </div>
+
+    <div id="content">
+        <ui:insert name="content"/>
+    </div>
+
+    <div id="footer">
+        <ui:insert name="footer">
+            <h:outputText value="Copyright (c) by Alina, Wiebke, Daphne 2018"/>
+        </ui:insert>
+    </div>
+</h:body>
+
+</html>
