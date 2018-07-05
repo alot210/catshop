@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: alien_slayer
+  Date: 6/18/18
+  Time: 1:02 PM
+-->
+
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> <!--wichtig um tags um beans functionality zu erweitern, sonst normale tags ausreichend-->
+<head>
+    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
+</head>
+    <ui:define name="header">
+        <ui:include src="header.xhtml"></ui:include>
+    </ui:define>
+    
+    <ui:define name="content">
+    <div class="m-5">
+        <h:form id="login_form" method="post" class="formular" style="width: 400px">
+            <legend>Login</legend>
+            <div class="form-group-sm">
+                <label for="username">Username</label>
+                <h:inputText class="form-control" value="#{userBean.user.userName}" name="username" id="username" required="true"/>
+            </div>
+            <div class="form-group-sm">
+                <label for="password">Password</label>
+                <h:inputText class="form-control" value="#{userBean.user.password}" name="password" id="password" required="true">
+                <f:validator validatorId="loginValidator"/>
+                </h:inputText>
+            </div>
+            <h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="login" value="Login" action="#{userBean.createUser}"/>
+            <h:commandButton class="btn btn-default btn-sm mr-1 mt-2" id="reset" value="Reset" action="#{userBean.resetForm}" immediate="true"/>
+        </h:form>
+    </div>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="footer.xhtml"></ui:include>
+    </ui:define>
+</ui:composition>
