@@ -100,4 +100,28 @@ public class H2ArticleDao {
         stmt.execute();
 
     }
+
+    public ArrayList<Article> getArticles(Article a) throws SQLException {
+
+        String search = a.getName();
+        Connection con = Config.getSQLConnection();
+
+        //search.toUpperCase();
+        String sql = "SELECT * FROM ARTICLE WHERE NAME LIKE '"+search+"%'";
+        Statement statement = con.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        ArrayList<Article> articleList = new ArrayList<Article>();
+
+        while(resultSet.next()) {
+            Article article = new Article();
+            article.setId(resultSet.getInt("ID"));
+            article.setName(resultSet.getString("NAME"));
+            article.setPrice(resultSet.getInt("PRICE"));
+            article.setAmount(resultSet.getInt("AMOUNT"));
+            articleList.add(article);
+            //articleList.listIterator().next();
+
+        }
+        return articleList;
+    }
 }

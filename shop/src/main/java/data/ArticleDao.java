@@ -12,4 +12,5 @@ public interface ArticleDao {
     void deleteArticle(Article article);
     void reduceAmount(int amount, int id) throws SQLException;
     ArrayList<Article> getArticle();
+    ArrayList<Article> getArticles(Article a) throws SQLException;
 }

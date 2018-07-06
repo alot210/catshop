@@ -33,4 +33,12 @@ public class ArticleManager {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         return articleDao.getArticleList();
     }
+
+    public List<Article> getArticles(Article a) throws SQLException {
+
+        H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
+        return articleDao.getArticles(a);
+    }
+
+
 }

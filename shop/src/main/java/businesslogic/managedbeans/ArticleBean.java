@@ -5,7 +5,9 @@ import transferModels.Article;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class ArticleBean implements Serializable{
     private Article article;
     private ArticleManager articleManager;
     public List<Article> articleList;
+    private String search;
 
     @PostConstruct
     void init(){
@@ -31,6 +34,7 @@ public class ArticleBean implements Serializable{
         articleManager.createArticle(a1);
         articleManager.createArticle(a2);
         articleManager.createArticle(a3);
+        articleList = articleManager.getArticles();
     }
 
 
@@ -50,6 +54,10 @@ public class ArticleBean implements Serializable{
         this.articleManager = articleManager;
     }
 
+    public String getSearch() { return search; }
+
+    public void setSearch(String search) { this.search = search; }
+
     /*public List<Article> getArticles(){
 
         articleList = articleManager.getArticles();
@@ -59,10 +67,31 @@ public class ArticleBean implements Serializable{
 
     public List<Article> getArticleList(){
 
-        System.out.println("getArticleList-method");
-        articleList = articleManager.getArticles();
+        //System.out.println("getArticleList-method");
+        //articleList = articleManager.getArticles();
+
 
         return articleList;
+    }
+
+    public void searchListener(AjaxBehaviorEvent e){
+
+        System.out.println("searchListener");
+        Article a = new Article();
+        if(search!=null && !search.equals("")) {
+            a.setName(search);
+
+            try {
+                articleList = articleManager.getArticles(a);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }else{
+            articleList=articleManager.getArticles();
+        }
+        System.out.println(articleList.toString());
+
+
     }
 
 
