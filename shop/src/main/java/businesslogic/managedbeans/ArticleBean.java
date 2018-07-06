@@ -31,11 +31,6 @@ public class ArticleBean implements Serializable{
         articleManager.createArticle(a1);
         articleManager.createArticle(a2);
         articleManager.createArticle(a3);
-
-        //vorerst um artikel in der liste zu haben
-
-        articleList.add(new Article(1, "Hoodie", 25, 200, image));
-        articleList.add(new Article(2, "Shirt", 15, 100, image));
     }
 
 
@@ -65,8 +60,7 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         System.out.println("getArticleList-method");
-        //artikelliste wird gerade noch in der init befüllt, nicht aus der datenbank
-        //articleList = articleManager.getArticles();
+        articleList = articleManager.getArticles();
 
         return articleList;
     }
