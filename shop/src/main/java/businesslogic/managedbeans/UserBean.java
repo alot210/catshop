@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 
 import java.io.Serializable;
@@ -67,4 +68,11 @@ public class UserBean implements Serializable {
         return "login.xhtml";
     }
 
+    //funktioniert so nicht über den Aufruf mit validate im html
+//    public void passwordValidate(FacesContext ctx, UIComponent ui, Object value) throws ValidatorException{
+//        String password = (String) value;
+//        if(password.indexOf('@')>1){
+//            throw new ValidatorException(new FacesMessage("Das Passwort darf kein @ Zeichen enthalten!"));
+//        }
+//    }
 }
