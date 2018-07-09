@@ -5,21 +5,61 @@
   Date: 6/18/18
   Time: 12:59 PM
 -->
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Shoppingcart</title>
     <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
 </h:head>
+    <ui:define name="header">
+        <ui:include src="header.xhtml"></ui:include>
+    </ui:define>
 
-<h:body>
-    <p>hier ist der warenkorb</p>
-</h:body>
+    <ui:define name="content">
+        <h:dataTable value="#{shoppingCartBean.shoppingCart.articleList}" var="artikel" id="artikel">
+            <div class="cointainer mt-2">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h:column>
+                            <div class="header-panel">
+                                <!-- das hier macht es blau -->
+                                <div class="panel alert-primary">
+                                    <!--<f:facet name="header">Name</f:facet>-->
+                                    #{artikel.name}
+                                </div>
+                            </div>
+                        </h:column>
+                        <h:column>
+                            <!--<f:facet name="header">Price</f:facet>-->
+                            <p> #{artikel.price} €</p>
+                        </h:column>
+                        <h:column>
+                            <!--<f:facet name="header">Amount</f:facet>-->
+                            <p>#{artikel.amount} items</p>
+                        </h:column>
+                        <h:column>
+                            <div class="panel-body">
+                                <h:graphicImage value="../assets/#{artikel.name}.png" class="img-responsive" alt="Image"></h:graphicImage>
+                            </div>
+                        </h:column>
+                        <h:column>
+                            <div class="header-panel">
+                                <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Add to Shoppingcart" id="login"></h:commandButton>
+                            </div>
+                        </h:column>
+                    </div>
+                </div>
+            </div>
+        </h:dataTable>
+    </ui:define>
 
-</html>
+    <ui:define name="footer">
+        <ui:include src="footer.xhtml"></ui:include>
+    </ui:define>
+
+
+</ui:composition>

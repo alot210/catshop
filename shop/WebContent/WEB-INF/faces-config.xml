@@ -42,6 +42,19 @@
         </navigation-case>
     </navigation-rule>
 
+    <!-- Detailseite zu Produkt anzeigen -->
+    <navigation-rule>
+        <display-name>products.xhtml</display-name>
+        <from-view-id>/pages/products.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{articleBean.getDetail}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/detail.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
     <validator>
         <validator-id>loginValidator</validator-id>
         <validator-class>presentation.LoginValidator</validator-class>

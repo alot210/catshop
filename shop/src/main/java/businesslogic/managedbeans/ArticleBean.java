@@ -5,6 +5,7 @@ import transferModels.Article;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -94,6 +95,9 @@ public class ArticleBean implements Serializable{
 
     }
 
+    public String getDetail(){
+        return "ok";
+    }
 
 
 
