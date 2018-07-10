@@ -50,6 +50,11 @@
                 </div>
             </div>
         </h:dataTable>
+        <p>Total:</p>
+        <h:outputText value="#{shoppingCartBean.sum}"></h:outputText>
+        <h:form>
+            <h:commandButton value="buy all" id="checkout" action="#{shoppingCartBean.checkout}"></h:commandButton>
+        </h:form>
     </ui:define>
 
     <ui:define name="footer">

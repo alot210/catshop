@@ -23,7 +23,7 @@ public class ShoppingCartManager {
 
     public void checkout(ShoppingCart cart) {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
-        List<Article> articlesInCart = shoppingCart.getArticleList();
+        List<Article> articlesInCart = cart.getArticleList();
         for (Article a : articlesInCart) {
             try {
                 articleDao.reduceAmount(a.getAmount(), a.getId());
@@ -38,7 +38,7 @@ public class ShoppingCartManager {
        List<Article> articlesInCart = shoppingCart.getArticleList();
        int sum = 0;
        for(Article a : articlesInCart){
-          sum += a.getPrice() * a.getAmount();
+          sum += a.getPrice(); // * a.getAmount();
        }
        shoppingCart.setSum(sum);
        return shoppingCart.getSum();
@@ -49,13 +49,15 @@ public class ShoppingCartManager {
         return shoppingCart;
     }
 
-    public void addArticle(ShoppingCart shoppingCart, String articleID){
+    public ShoppingCart addArticle(ShoppingCart cart, String articleID){
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         try {
-            shoppingCart.getArticleList().add(articleDao.getArticle(articleID));
+            cart.getArticleList().add(articleDao.getArticle(articleID));
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return cart;
     }
 
     public void deleteArticle(ShoppingCart shoppingCart, String articleID) {

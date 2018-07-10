@@ -12,17 +12,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 @ManagedBean(name="shoppingCartBean")
-@RequestScoped
+@SessionScoped
 public class ShoppingCartBean implements Serializable {
 
     private ShoppingCart shoppingCart;
     private ShoppingCartManager shoppingCartManager;
 
+
+
+    private int sum;
+
     @PostConstruct
     void init(){
-        //TEST
-        setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
-        setShoppingCartManager(new ShoppingCartManager());
+        System.out.println("SCBean init wird jetzt aufgerufen");
+            setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
+            setShoppingCartManager(new ShoppingCartManager());
+
         this.shoppingCartManager.addArticle(this.shoppingCart, "1");
 
     }
@@ -43,9 +48,19 @@ public class ShoppingCartBean implements Serializable {
         this.shoppingCartManager = shoppingCartManager;
     }
 
+    public int getSum() {
+        sum= shoppingCartManager.calculate(shoppingCart);
+        return sum;
+    }
 
-    public int getTotalSum(){
-       return shoppingCartManager.calculate(shoppingCart);
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+
+    public void totalSum(){
+
+        sum= shoppingCartManager.calculate(shoppingCart);
     }
 
     //button action= viewCart -> shoppingcart.xhtml
@@ -61,7 +76,8 @@ public class ShoppingCartBean implements Serializable {
 
     //button action=add -> shoppingcart.xhtml
     public String add(String articleID){
-        shoppingCartManager.addArticle(shoppingCart, articleID);
+        //System.out.println("add to shopcart --------------------");
+        shoppingCart = this.shoppingCartManager.addArticle(this.shoppingCart, articleID);
         return "shoppingcart.xhtml";
     }
 
