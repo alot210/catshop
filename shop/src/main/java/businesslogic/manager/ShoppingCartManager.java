@@ -1,8 +1,11 @@
 package businesslogic.manager;
 
+import data.H2ArticleDao;
+import data.H2FactoryDao;
 import transferModels.Article;
 import transferModels.ShoppingCart;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ShoppingCartManager {
@@ -18,15 +21,27 @@ public class ShoppingCartManager {
         return this.shoppingCart = new ShoppingCart(articleList);
     }
 
-    //TODO
-    public void checkout(ShoppingCart cart){
-
+    public void checkout(ShoppingCart cart) {
+        H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
+        List<Article> articlesInCart = shoppingCart.getArticleList();
+        for (Article a : articlesInCart) {
+            try {
+                articleDao.reduceAmount(a.getAmount(), a.getId());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        shoppingCart.resetCart();
     }
 
-    //TODO
     public int calculate(ShoppingCart shoppingCart){
-
-        return 0;
+       List<Article> articlesInCart = shoppingCart.getArticleList();
+       int sum = 0;
+       for(Article a : articlesInCart){
+          sum += a.getPrice() * a.getAmount();
+       }
+       shoppingCart.setSum(sum);
+       return shoppingCart.getSum();
     }
 
 
@@ -34,12 +49,22 @@ public class ShoppingCartManager {
         return shoppingCart;
     }
 
-    //TODO
     public void addArticle(ShoppingCart shoppingCart, int articleID){
+        H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
+        try {
+            shoppingCart.getArticleList().add(articleDao.getArticle(articleID));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    //TODO
-    public void deleteArticle(ShoppingCart shoppingCart, int articleID){
+    public void deleteArticle(ShoppingCart shoppingCart, int articleID) {
+        H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
+        try {
+            shoppingCart.getArticleList().remove( articleDao.getArticle(articleID));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Article> getArticles(){

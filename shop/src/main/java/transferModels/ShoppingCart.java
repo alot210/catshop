@@ -26,5 +26,9 @@ public class ShoppingCart implements Serializable {
     public List<Article> getArticleList() {
         return articleList;
     }
+
+    public void resetCart(){
+        this.articleList = null;
+    }
 }
 

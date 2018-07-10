@@ -9,8 +9,6 @@ import java.util.List;
 
 public class ArticleManager {
 
-    //TODO
-
     public void createArticle(Article article){
 
         //System.out.println("aMan mit createAr wird aufgerufen");

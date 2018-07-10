@@ -1,12 +1,14 @@
 package businesslogic.managedbeans;
 
 import businesslogic.manager.ShoppingCartManager;
+import transferModels.Article;
 import transferModels.ShoppingCart;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @ManagedBean(name="shoppingCartBean")
 @SessionScoped
@@ -17,7 +19,11 @@ public class ShoppingCartBean implements Serializable {
 
     @PostConstruct
     void init(){
-        //unnötig, weil wir setter benutzen??!
+        //TEST
+        setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
+        setShoppingCartManager(new ShoppingCartManager());
+        this.shoppingCartManager.addArticle(this.shoppingCart, 1);
+
     }
 
     public void setShoppingCart(ShoppingCart shoppingCart){
@@ -36,7 +42,10 @@ public class ShoppingCartBean implements Serializable {
         this.shoppingCartManager = shoppingCartManager;
     }
 
-    //TODO application logic
+
+    public int getTotalSum(){
+       return shoppingCartManager.calculate(shoppingCart);
+    }
 
     //button action= viewCart -> shoppingcart.xhtml
     public String viewCart(){
