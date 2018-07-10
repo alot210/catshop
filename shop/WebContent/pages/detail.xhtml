@@ -22,6 +22,39 @@
     <!--TODO -->
     <ui:define name="content">
         <h:dataTable value="#{articleBean.article}" var="artikel" id="artikel">
+                <div class="cointainer mt-2">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h:column>
+                                <div class="header-panel">
+                                    <p>#{artikel.name}</p>
+                                </div>
+                            </h:column>
+                            <h:column>
+                                <p> #{artikel.price} €</p>
+                            </h:column>
+                            <h:column>
+                                <p>#{artikel.amount} items</p>
+                            </h:column>
+                            <h:column>
+                                <div class="panel-body">
+                                    <h:graphicImage value="../assets/#{artikel.name}.png" class="img-responsive" alt="Image"></h:graphicImage>
+                                </div>
+                            </h:column>
+                            <h:column>
+                                <div class="header-panel">
+                                    <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Add to Shoppingcart" id="login" action="#{shoppingCartBean.add(artikel.id)}"></h:commandButton>
+                                </div>
+                            </h:column>
+                            <h:column>
+                                <div class="panel-body">
+                                    <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Back to Products" action="#{articleBean.viewProducts}" id="products">
+                                    </h:commandButton>
+                                </div>
+                            </h:column>
+                        </div>
+                    </div>
+                </div>
         </h:dataTable>
     </ui:define>
 

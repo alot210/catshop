@@ -49,7 +49,7 @@ public class ShoppingCartManager {
         return shoppingCart;
     }
 
-    public void addArticle(ShoppingCart shoppingCart, int articleID){
+    public void addArticle(ShoppingCart shoppingCart, String articleID){
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         try {
             shoppingCart.getArticleList().add(articleDao.getArticle(articleID));
@@ -58,7 +58,7 @@ public class ShoppingCartManager {
         }
     }
 
-    public void deleteArticle(ShoppingCart shoppingCart, int articleID) {
+    public void deleteArticle(ShoppingCart shoppingCart, String articleID) {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         try {
             shoppingCart.getArticleList().remove( articleDao.getArticle(articleID));

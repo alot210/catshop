@@ -6,12 +6,13 @@ import transferModels.ShoppingCart;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 @ManagedBean(name="shoppingCartBean")
-@SessionScoped
+@RequestScoped
 public class ShoppingCartBean implements Serializable {
 
     private ShoppingCart shoppingCart;
@@ -22,7 +23,7 @@ public class ShoppingCartBean implements Serializable {
         //TEST
         setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
         setShoppingCartManager(new ShoppingCartManager());
-        this.shoppingCartManager.addArticle(this.shoppingCart, 1);
+        this.shoppingCartManager.addArticle(this.shoppingCart, "1");
 
     }
 
@@ -59,13 +60,13 @@ public class ShoppingCartBean implements Serializable {
     }
 
     //button action=add -> shoppingcart.xhtml
-    public String add(int articleID){
+    public String add(String articleID){
         shoppingCartManager.addArticle(shoppingCart, articleID);
-        return "pages/shoppingcart.xhtml";
+        return "shoppingcart.xhtml";
     }
 
     //button action=delete -> shoppingcart.xhtml
-    public String delete(int articleID){
+    public String delete(String articleID){
         shoppingCartManager.deleteArticle(shoppingCart, articleID);
         return "pages/shoppingcart.xhtml";
     }

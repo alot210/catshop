@@ -23,7 +23,7 @@ public class H2ArticleDao {
         int numberRows = statement.executeUpdate();
     }
 
-    public Article getArticle(int id) throws SQLException {
+    public Article getArticle(String id) throws SQLException {
         Connection con = Config.getSQLConnection();
         String sql = "SELECT * FROM ARTICLE WHERE ID="+id;
         Statement statement = con.createStatement();
@@ -91,7 +91,7 @@ public class H2ArticleDao {
 
     }
 
-    public void reduceAmount(int amount, int id) throws SQLException {
+    public void reduceAmount(int amount, String id) throws SQLException {
         Connection con = Config.getSQLConnection();
 
         String sql = "UPDATE ARTICLE SET AMOUNT="+amount+ "WHERE ID="+id;

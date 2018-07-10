@@ -38,5 +38,12 @@ public class ArticleManager {
         return articleDao.getArticles(a);
     }
 
+    public Article getArticle(String id) throws SQLException {
+
+        H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
+        return articleDao.getArticle(id);
+
+    }
+
 
 }

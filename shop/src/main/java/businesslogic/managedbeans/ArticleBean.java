@@ -37,7 +37,7 @@ public class ArticleBean implements Serializable{
         Article a1 = new Article("1", "Hoodie", 25, 200, image);
         Article a2 = new Article("2", "Shirt", 15, 100, image);
         Article a3 = new Article("3", "Smartphone Case", 10, 100, image);
-        article=a1;
+        article=new Article();
         articleManager.createArticle(a1);
         articleManager.createArticle(a2);
         articleManager.createArticle(a3);
@@ -99,8 +99,20 @@ public class ArticleBean implements Serializable{
 
         System.out.println("Produkt id: "+id);
 
-        return "ok";
+        try {
+            article = articleManager.getArticle(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        return "ok";
+    }
+
+    public String viewProducts(){
+
+        //ich hab keine ahnung warum das nicht aufgerufen wird!!!
+        System.out.println("zurück zu prdukten");
+        return "products.xhtml";
     }
 
 
