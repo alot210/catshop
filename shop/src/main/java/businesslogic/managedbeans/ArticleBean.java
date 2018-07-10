@@ -29,6 +29,7 @@ public class ArticleBean implements Serializable{
     void init(){
 
         System.out.println("articleBean-init");
+
         articleManager = new ArticleManager();
         articleManager.createArticleTable();
         articleList = new ArrayList<Article>();
@@ -36,6 +37,7 @@ public class ArticleBean implements Serializable{
         Article a1 = new Article("1", "Hoodie", 25, 200, image);
         Article a2 = new Article("2", "Shirt", 15, 100, image);
         Article a3 = new Article("3", "Smartphone Case", 10, 100, image);
+        article=a1;
         articleManager.createArticle(a1);
         articleManager.createArticle(a2);
         articleManager.createArticle(a3);
