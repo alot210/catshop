@@ -15,7 +15,7 @@ public class H2ArticleDao {
 
         String sql = "INSERT INTO ARTICLE(ID,NAME,PRICE,AMOUNT) VALUES (?,?,?,?)";
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setInt(1, article.getId());
+        statement.setString(1, article.getId());
         statement.setString(2, article.getName());
         statement.setInt(3, article.getPrice());
         statement.setInt(4, article.getAmount());
@@ -30,7 +30,7 @@ public class H2ArticleDao {
         ResultSet resultSet = statement.executeQuery(sql);
         Article article = new Article();
         while(resultSet.next()) {
-            article.setId(resultSet.getInt("ID"));
+            article.setId(resultSet.getString("ID"));
             article.setName(resultSet.getString("NAME"));
             article.setPrice(resultSet.getInt("PRICE"));
             article.setAmount(resultSet.getInt("AMOUNT"));
@@ -39,7 +39,7 @@ public class H2ArticleDao {
     }
 
     public void deleteArticle(Article article){
-        int id = article.getId();
+        String id = article.getId();
         String sql = "DELETE FROM ARTICLE WHERE ID="+id;
     }
 
@@ -78,7 +78,7 @@ public class H2ArticleDao {
             ResultSet set = stmt.executeQuery();
             while(set.next()) {
                 Article article = new Article();
-                article.setId(set.getInt("ID"));
+                article.setId(set.getString("ID"));
                 article.setName(set.getString("NAME"));
                 article.setPrice(set.getInt("PRICE"));
                 article.setAmount(set.getInt("AMOUNT"));
@@ -114,7 +114,7 @@ public class H2ArticleDao {
 
         while(resultSet.next()) {
             Article article = new Article();
-            article.setId(resultSet.getInt("ID"));
+            article.setId(resultSet.getString("ID"));
             article.setName(resultSet.getString("NAME"));
             article.setPrice(resultSet.getInt("PRICE"));
             article.setAmount(resultSet.getInt("AMOUNT"));

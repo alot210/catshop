@@ -4,15 +4,20 @@ import transferModels.Article;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @ManagedBean(name = "articleBean")
-@SessionScoped
+@RequestScoped
 public class ArticleBean implements Serializable{
 
     private Article article;
@@ -28,9 +33,9 @@ public class ArticleBean implements Serializable{
         articleManager.createArticleTable();
         articleList = new ArrayList<Article>();
         String image = "https://placehold.it/150x80?text=IMAGE";
-        Article a1 = new Article(1, "Hoodie", 25, 200, image);
-        Article a2 = new Article(2, "Shirt", 15, 100, image);
-        Article a3 = new Article(3, "Smartphone Case", 10, 100, image);
+        Article a1 = new Article("1", "Hoodie", 25, 200, image);
+        Article a2 = new Article("2", "Shirt", 15, 100, image);
+        Article a3 = new Article("3", "Smartphone Case", 10, 100, image);
         articleManager.createArticle(a1);
         articleManager.createArticle(a2);
         articleManager.createArticle(a3);
@@ -58,12 +63,6 @@ public class ArticleBean implements Serializable{
 
     public void setSearch(String search) { this.search = search; }
 
-    /*public List<Article> getArticles(){
-
-        articleList = articleManager.getArticles();
-        return articleList;
-//        return "products.xhtml";
-    }*/
 
     public List<Article> getArticleList(){
 
@@ -91,6 +90,14 @@ public class ArticleBean implements Serializable{
         }
         System.out.println(articleList.toString());
 
+
+    }
+
+    public String viewDetails(String id){
+
+        System.out.println("Produkt id: "+id);
+
+        return "ok";
 
     }
 

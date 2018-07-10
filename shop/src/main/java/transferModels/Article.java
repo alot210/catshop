@@ -1,10 +1,10 @@
 package transferModels;
 
 import java.io.Serializable;
-
+import java.util.Map;
 public class Article implements Serializable {
 
-    private int id;
+    private String id;
     private String name;
     private int price;
     private int amount;
@@ -14,7 +14,7 @@ public class Article implements Serializable {
 
     }
 
-    public Article(int id, String name, int price, int amount, String image){
+    public Article(String id, String name, int price, int amount, String image){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -23,11 +23,11 @@ public class Article implements Serializable {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

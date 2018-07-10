@@ -41,6 +41,15 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <display-name>products.xhtml</display-name>
+        <from-view-id>/pages/products.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{articleBean.viewDetails(artikel.id)}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/detail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
     <validator>
         <validator-id>loginValidator</validator-id>

@@ -61,6 +61,12 @@
                         <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Add to Shoppingcart" id="login"></h:commandButton>
                         </div>
                     </h:column>
+                    <h:column>
+                        <div class="panel-body">
+                            <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="View details" action="#{articleBean.viewDetails(artikel.id)}" id="details">
+                            </h:commandButton>
+                        </div>
+                    </h:column>
                 </div>
             </div>
         </div>

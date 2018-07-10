@@ -9,17 +9,24 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-    <title>Product Detail</title>
-    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
-</h:head>
+    <h:head>
+        <title>Product Detail</title>
+        <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
+    </h:head>
+        <ui:define name="header">
+            <ui:include src="header.xhtml"></ui:include>
+        </ui:define>
 
-<h:body>
-    
-</h:body>
+        <ui:define name="content">
 
-</html>
+        </ui:define>
+        <ui:define name="footer">
+            <ui:include src="footer.xhtml"></ui:include>
+        </ui:define>
+</ui:composition>
