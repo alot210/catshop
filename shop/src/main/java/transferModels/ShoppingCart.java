@@ -1,6 +1,7 @@
 package transferModels;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart implements Serializable {
@@ -28,7 +29,8 @@ public class ShoppingCart implements Serializable {
     }
 
     public void resetCart(){
-        this.articleList = null;
+        this.articleList = new ArrayList<Article>(); {
+        }
     }
 }
 

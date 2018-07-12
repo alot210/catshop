@@ -31,17 +31,22 @@ public class ShoppingCartManager {
                 e.printStackTrace();
             }
         }
-        shoppingCart.resetCart();
+        cart.resetCart();
     }
 
-    public int calculate(ShoppingCart shoppingCart){
-       List<Article> articlesInCart = shoppingCart.getArticleList();
-       int sum = 0;
-       for(Article a : articlesInCart){
-          sum += a.getPrice(); // * a.getAmount();
-       }
-       shoppingCart.setSum(sum);
-       return shoppingCart.getSum();
+    public int calculate(ShoppingCart cart){
+
+        if(cart.getArticleList()!=null) {
+            List<Article> articlesInCart = cart.getArticleList();
+
+            int sum = 0;
+            for (Article a : articlesInCart) {
+                sum += a.getPrice(); // * a.getAmount();
+            }
+
+            cart.setSum(sum);
+        }
+       return cart.getSum();
     }
 
 

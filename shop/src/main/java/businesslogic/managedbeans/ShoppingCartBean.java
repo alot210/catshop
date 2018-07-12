@@ -17,9 +17,6 @@ public class ShoppingCartBean implements Serializable {
 
     private ShoppingCart shoppingCart;
     private ShoppingCartManager shoppingCartManager;
-
-
-
     private int sum;
 
     @PostConstruct

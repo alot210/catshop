@@ -63,6 +63,17 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <display-name>shoppingcart.xhtml</display-name>
+        <from-view-id>/pages/shoppingcart.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{shoppingCartBean.checkout}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/shoppingcart.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
 
     <validator>
         <validator-id>loginValidator</validator-id>
