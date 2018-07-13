@@ -91,6 +91,7 @@ public class ShoppingCartBean implements Serializable {
     //button action=checkout -> checkout.xhtml
     public String checkout(){
         this.shoppingCart.setArticleList(shoppingCartManager.checkout(shoppingCart));
+        ArticleBean.isCheckout = true;
         return "ok";
     }
 

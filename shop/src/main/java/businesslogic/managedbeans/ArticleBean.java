@@ -24,6 +24,7 @@ public class ArticleBean implements Serializable{
     private ArticleManager articleManager;
     public List<Article> articleList;
     private String search;
+    static boolean isCheckout;
 
     @PostConstruct
     void init(){
@@ -69,7 +70,11 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         //System.out.println("getArticleList-method");
-        //articleList = articleManager.getArticles();
+        if(isCheckout == true){
+            articleList = articleManager.getArticles();
+            isCheckout=false;
+        }
+
 
 
         return articleList;
@@ -78,21 +83,17 @@ public class ArticleBean implements Serializable{
     public void searchListener(AjaxBehaviorEvent e){
 
         System.out.println("searchListener");
-        System.out.println(articleList.toString());
         Article a = new Article();
         if(search!=null && !search.equals("")) {
             a.setName(search);
-            //System.out.println("search eingabe!!!!!!!!!"+ a.getName());
 
             try {
-                //System.out.println("try block wird aufgeruden");
-                this.articleList = articleManager.getArticles(a);
+                articleList = articleManager.getArticles(a);
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
         }else{
-            //System.out.println("try block wird aufgeruden");
-            this.articleList=articleManager.getArticles();
+            articleList=articleManager.getArticles();
         }
         System.out.println(articleList.toString());
 
