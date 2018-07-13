@@ -24,6 +24,7 @@ public class ArticleBean implements Serializable{
     private ArticleManager articleManager;
     public List<Article> articleList;
     private String search;
+    static boolean isCheckout;
 
     @PostConstruct
     void init(){
@@ -69,7 +70,11 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         //System.out.println("getArticleList-method");
-        articleList = articleManager.getArticles();
+        if(isCheckout == true){
+            articleList = articleManager.getArticles();
+            isCheckout=false;
+        }
+
 
 
         return articleList;
