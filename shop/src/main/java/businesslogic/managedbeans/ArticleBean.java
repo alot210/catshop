@@ -69,7 +69,7 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         //System.out.println("getArticleList-method");
-        articleList = articleManager.getArticles();
+        //articleList = articleManager.getArticles();
 
 
         return articleList;
@@ -78,17 +78,21 @@ public class ArticleBean implements Serializable{
     public void searchListener(AjaxBehaviorEvent e){
 
         System.out.println("searchListener");
+        System.out.println(articleList.toString());
         Article a = new Article();
         if(search!=null && !search.equals("")) {
             a.setName(search);
+            //System.out.println("search eingabe!!!!!!!!!"+ a.getName());
 
             try {
-                articleList = articleManager.getArticles(a);
+                //System.out.println("try block wird aufgeruden");
+                this.articleList = articleManager.getArticles(a);
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
         }else{
-            articleList=articleManager.getArticles();
+            //System.out.println("try block wird aufgeruden");
+            this.articleList=articleManager.getArticles();
         }
         System.out.println(articleList.toString());
 
