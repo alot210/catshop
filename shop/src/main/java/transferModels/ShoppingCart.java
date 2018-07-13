@@ -28,6 +28,8 @@ public class ShoppingCart implements Serializable {
         return articleList;
     }
 
+    public void setArticleList(List<Article> al) { this.articleList = al; }
+
     public void resetCart(){
         this.articleList = new ArrayList<Article>(); {
         }

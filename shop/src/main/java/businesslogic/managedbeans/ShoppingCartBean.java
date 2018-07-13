@@ -25,7 +25,7 @@ public class ShoppingCartBean implements Serializable {
             setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
             setShoppingCartManager(new ShoppingCartManager());
 
-        this.shoppingCartManager.addArticle(this.shoppingCart, "1");
+        //this.shoppingCartManager.addArticle(this.shoppingCart, "1");
 
     }
 
@@ -92,7 +92,7 @@ public class ShoppingCartBean implements Serializable {
 
     //button action=checkout -> checkout.xhtml
     public String checkout(){
-        shoppingCartManager.checkout(shoppingCart);
+        this.shoppingCart.setArticleList(shoppingCartManager.checkout(shoppingCart));
         return "ok";
     }
 

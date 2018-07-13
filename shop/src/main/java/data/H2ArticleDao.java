@@ -93,7 +93,7 @@ public class H2ArticleDao {
 
     public void reduceAmount(int amount, String id) throws SQLException {
         Connection con = Config.getSQLConnection();
-
+        amount--;
         String sql = "UPDATE ARTICLE SET AMOUNT="+amount+ "WHERE ID="+id;
         PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -123,5 +123,27 @@ public class H2ArticleDao {
 
         }
         return articleList;
+    }
+
+    public int getAmount(Article a) throws SQLException {
+
+        Connection con = Config.getSQLConnection();
+        String id = a.getId();
+        String sql = "SELECT * FROM ARTICLE WHERE ID="+id;
+
+        Statement statement = con.createStatement();
+
+        ResultSet resultSet = statement.executeQuery(sql);
+        Article article = new Article();
+        while(resultSet.next()) {
+            article.setId(resultSet.getString("ID"));
+            article.setName(resultSet.getString("NAME"));
+            article.setPrice(resultSet.getInt("PRICE"));
+            article.setAmount(resultSet.getInt("AMOUNT"));
+        }
+        return article.getAmount();
+
+
+
     }
 }

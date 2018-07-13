@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @ManagedBean(name = "articleBean")
-@RequestScoped
+@SessionScoped
 public class ArticleBean implements Serializable{
 
     private Article article;
@@ -69,7 +69,7 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         //System.out.println("getArticleList-method");
-        //articleList = articleManager.getArticles();
+        articleList = articleManager.getArticles();
 
 
         return articleList;

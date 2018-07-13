@@ -21,17 +21,20 @@ public class ShoppingCartManager {
         return this.shoppingCart = new ShoppingCart(articleList);
     }
 
-    public void checkout(ShoppingCart cart) {
+    public List<Article> checkout(ShoppingCart cart) {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         List<Article> articlesInCart = cart.getArticleList();
         for (Article a : articlesInCart) {
             try {
-                articleDao.reduceAmount(a.getAmount(), a.getId());
+                articleDao.reduceAmount(articleDao.getAmount(a), a.getId());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+        //cart.setArticleList(articleDao.getArticleList());
         cart.resetCart();
+
+        return cart.getArticleList();
     }
 
     public int calculate(ShoppingCart cart){
