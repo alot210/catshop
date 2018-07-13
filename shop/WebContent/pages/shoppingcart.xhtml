@@ -11,18 +11,18 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-    <title>Shoppingcart</title>
-    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
-</h:head>
+    <h:head>
+        <title>Shoppingcart</title>
+        <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
+    </h:head>
     <ui:define name="header">
         <ui:include src="header.xhtml"></ui:include>
     </ui:define>
 
     <ui:define name="content">
         <h:dataTable value="#{shoppingCartBean.shoppingCart.articleList}" var="artikel" id="artikel">
-            <div class="cointainer mt-2">
-                <div class="row">
+            <div class="container m-5">
+                <div class="row m-5">
                     <div class="col-sm-4">
                         <h:column>
                             <div class="header-panel">
@@ -43,9 +43,20 @@
                         </h:column>
                         <h:column>
                             <div class="panel-body">
-                                <h:graphicImage value="../assets/#{artikel.name}.png" class="img-responsive" alt="Image"></h:graphicImage>
+                                <h:graphicImage value="../assets/#{artikel.name}.png" class="img-responsive"
+                                                alt="Image"></h:graphicImage>
                             </div>
                         </h:column>
+                        <h:column>
+                            <h:form>
+                                <h:commandButton styleClass="btn btn-default btn-sm mr-1 mt-2" value="Remove"
+                                                 action="#{shoppingCartBean.delete(artikel.id)}" id="delete">
+
+                                </h:commandButton>
+                            </h:form>
+                        </h:column>
+
+
                     </div>
                 </div>
             </div>

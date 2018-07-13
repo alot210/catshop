@@ -24,9 +24,6 @@ public class ShoppingCartBean implements Serializable {
         System.out.println("SCBean init wird jetzt aufgerufen");
             setShoppingCart(new ShoppingCart(new ArrayList<Article>()));
             setShoppingCartManager(new ShoppingCartManager());
-
-        //this.shoppingCartManager.addArticle(this.shoppingCart, "1");
-
     }
 
     public void setShoppingCart(ShoppingCart shoppingCart){
@@ -80,8 +77,9 @@ public class ShoppingCartBean implements Serializable {
 
     //button action=delete -> shoppingcart.xhtml
     public String delete(String articleID){
-        shoppingCartManager.deleteArticle(shoppingCart, articleID);
-        return "pages/shoppingcart.xhtml";
+        System.out.println("delete");
+        shoppingCart = this.shoppingCartManager.deleteArticle(this.shoppingCart, articleID);
+        return "shoppingcart.xhtml";
     }
 
     //button action=calculate -> shoppingcart.xhtml

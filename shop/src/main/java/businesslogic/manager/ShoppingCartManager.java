@@ -13,11 +13,11 @@ public class ShoppingCartManager {
     private ShoppingCart shoppingCart;
 
 
-    public ShoppingCart createShoppingCart(){
+    public ShoppingCart createShoppingCart() {
         return this.shoppingCart = new ShoppingCart();
     }
 
-    public ShoppingCart createShoppingCart(List<Article> articleList){
+    public ShoppingCart createShoppingCart(List<Article> articleList) {
         return this.shoppingCart = new ShoppingCart(articleList);
     }
 
@@ -37,9 +37,9 @@ public class ShoppingCartManager {
         return cart.getArticleList();
     }
 
-    public int calculate(ShoppingCart cart){
+    public int calculate(ShoppingCart cart) {
 
-        if(cart.getArticleList()!=null) {
+        if (cart.getArticleList() != null) {
             List<Article> articlesInCart = cart.getArticleList();
 
             int sum = 0;
@@ -49,7 +49,7 @@ public class ShoppingCartManager {
 
             cart.setSum(sum);
         }
-       return cart.getSum();
+        return cart.getSum();
     }
 
 
@@ -57,7 +57,7 @@ public class ShoppingCartManager {
         return shoppingCart;
     }
 
-    public ShoppingCart addArticle(ShoppingCart cart, String articleID){
+    public ShoppingCart addArticle(ShoppingCart cart, String articleID) {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
         try {
             cart.getArticleList().add(articleDao.getArticle(articleID));
@@ -68,16 +68,23 @@ public class ShoppingCartManager {
         return cart;
     }
 
-    public void deleteArticle(ShoppingCart shoppingCart, String articleID) {
+    public ShoppingCart deleteArticle(ShoppingCart cart, String articleID) {
         H2ArticleDao articleDao = H2FactoryDao.getDaoArticle();
-        try {
-            shoppingCart.getArticleList().remove( articleDao.getArticle(articleID));
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+        List<Article> list = cart.getArticleList();
+        Article a = null;
+        for (Article article : list) {
+
+            if (article.getId() == articleID) {
+                a = article;
+            }
         }
+        list.remove(a);
+        cart.setArticleList(list);
+        return cart;
     }
 
-    public List<Article> getArticles(){
+    public List<Article> getArticles() {
         return shoppingCart.getArticleList();
     }
 }

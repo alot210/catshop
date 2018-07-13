@@ -25,10 +25,12 @@ public class ShoppingCart implements Serializable {
     }
 
     public List<Article> getArticleList() {
-        return articleList;
+        return this.articleList;
     }
 
-    public void setArticleList(List<Article> al) { this.articleList = al; }
+    public void setArticleList(List<Article> list) {
+        this.articleList = list;
+    }
 
     public void resetCart(){
         this.articleList = new ArrayList<Article>(); {
