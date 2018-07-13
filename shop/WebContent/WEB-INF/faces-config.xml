@@ -74,6 +74,17 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <display-name>checkout.xhtml</display-name>
+        <from-view-id>/pages/checkout.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.logout}</from-action>
+            <from-outcome>ok</from-outcome>
+            <to-view-id>/pages/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
 
     <validator>
         <validator-id>loginValidator</validator-id>
