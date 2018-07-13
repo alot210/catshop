@@ -21,6 +21,7 @@
 
     <!--TODO -->
     <ui:define name="content">
+        <h:form>
         <h:dataTable value="#{articleBean.article}" var="artikel" id="artikel">
                 <div class="cointainer mt-2">
                     <div class="row">
@@ -55,8 +56,11 @@
                         </div>
                     </div>
                 </div>
+
         </h:dataTable>
+        </h:form>
     </ui:define>
+
 
     <ui:define name="footer">
         <ui:include src="footer.xhtml"></ui:include>
