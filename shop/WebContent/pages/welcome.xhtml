@@ -11,20 +11,43 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> <!--wichtig um tags um beans functionality zu erweitern, sonst normale tags ausreichend-->
-<h:head>
-    <title>Welcome To CatShop</title>
-    <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
-</h:head>
+    <h:head>
+        <title>Welcome To CatShop</title>
+        <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
+    </h:head>
     <ui:define name="header">
         <ui:include src="header.xhtml"></ui:include>
     </ui:define>
 
     <ui:define name="content">
-        <p>Benutzer:</p>
-        <h:outputText value="#{userBean.user.userName}"></h:outputText>
+        <div class="container mt-5">
+            <div class="row m-2">
+                <div class="col h3">
+                    <span>Dear </span>
+                    <h:outputText value="#{userBean.user.userName}"></h:outputText>
+                    <span>, </span>
+                </div>
+            </div>
+            <br></br>
+            <div class="row m-2">
+                <div class="col h3">
+                    <span>We know you love cats. Because cats are <b>purrfect</b>.</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col h3">
+                    <span>And this is <b>furreal</b> the best page to get your cat merch.</span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col h3">
+                    <span>Get the new cat collection now!</span>
+                </div>
+            </div>
+        </div>
     </ui:define>
 
-<ui:define name="footer">
-    <ui:include src="footer.xhtml"></ui:include>
-</ui:define>
+    <ui:define name="footer">
+        <ui:include src="footer.xhtml"></ui:include>
+    </ui:define>
 </ui:composition>
