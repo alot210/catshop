@@ -70,7 +70,7 @@ public class ArticleBean implements Serializable{
     public List<Article> getArticleList(){
 
         //System.out.println("getArticleList-method");
-        if(isCheckout == true){
+        if(isCheckout){
             articleList = articleManager.getArticles();
             isCheckout=false;
         }

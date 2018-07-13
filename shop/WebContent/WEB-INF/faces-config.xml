@@ -69,7 +69,7 @@
         <navigation-case>
             <from-action>#{shoppingCartBean.checkout}</from-action>
             <from-outcome>ok</from-outcome>
-            <to-view-id>/pages/shoppingcart.xhtml</to-view-id>
+            <to-view-id>/pages/checkout.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

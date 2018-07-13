@@ -135,12 +135,12 @@ public class H2ArticleDao {
 
         ResultSet resultSet = statement.executeQuery(sql);
         Article article = new Article();
-       /* while(resultSet.next()) {
+        while(resultSet.next()) {
             article.setId(resultSet.getString("ID"));
             article.setName(resultSet.getString("NAME"));
             article.setPrice(resultSet.getInt("PRICE"));
             article.setAmount(resultSet.getInt("AMOUNT"));
-        }*/
+        }
         return article.getAmount();
 
 
