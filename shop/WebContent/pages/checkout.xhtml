@@ -5,24 +5,32 @@
   Date: 6/18/18
   Time: 1:02 PM
 -->
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
     <title>Checkout</title>
     <h:outputStylesheet library="bootstrap-4.0.0-dist" name="css/bootstrap.css"></h:outputStylesheet>
 </h:head>
 
+<ui:define name="header">
+    <ui:include src="header.xhtml"></ui:include>
+</ui:define>
+
 <h:body>
-    <p>Danke für Ihren Einkauf. </p>
+    <div class="container">
+    <h1>Danke für Ihren Einkauf. </h1>
+    </div>
     <h:form>
         <h:commandButton id="logout-button" value="Logout" action="#{userBean.logout}"/>
     </h:form>
 </h:body>
 
-</html>
+
+<ui:define name="footer">
+    <ui:include src="footer.xhtml"></ui:include>
+</ui:define>
+</ui:composition>
