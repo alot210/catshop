@@ -20,14 +20,15 @@
     <ui:include src="header.xhtml"></ui:include>
 </ui:define>
 
-<h:body>
+    <ui:define name="content">
+
     <div class="container">
     <h1>Danke für Ihren Einkauf. </h1>
     </div>
     <h:form>
         <h:commandButton id="logout-button" value="Logout" action="#{userBean.logout}"/>
     </h:form>
-</h:body>
+    </ui:define>
 
 
 <ui:define name="footer">
